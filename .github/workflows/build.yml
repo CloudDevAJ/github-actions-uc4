@@ -22,3 +22,9 @@ jobs:
 
       - name: test app
         run: python -m pytest
+
+      - name: Start Flask and verify response
+        run: |
+          python app.py &
+          sleep 5
+          curl --fail http://127.0.0.1:5000/
